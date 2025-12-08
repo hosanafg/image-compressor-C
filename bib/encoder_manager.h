@@ -16,7 +16,7 @@ S.O: Windows 11
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "quadtree.h"
+#include "../bib/quadtree.h"
 
 void run_encode(char *input_pgm, char *output_qcf, char *output_reconstructed_pgm, int threshold);
 void apply_smoothing_filter(unsigned char *pData, int total_width, int total_height);

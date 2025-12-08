@@ -15,7 +15,7 @@ S.O: Windows 11
 #define ENCODER_H
 
 #include <stdio.h>
-#include "quadtree.h" 
+#include "../bib/quadtree.h" 
 
 typedef struct {
     FILE *fp;             

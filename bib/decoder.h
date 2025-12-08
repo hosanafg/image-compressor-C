@@ -15,8 +15,8 @@ S.O: Windows 11
 #define DECODER_H
 
 #include <stdio.h>
-#include "quadtree.h"
-#include "pgm.h" 
+#include "../bib/quadtree.h"
+#include "../bib/pgm.h" 
 
 typedef struct {
     FILE *fp;             
