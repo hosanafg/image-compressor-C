@@ -46,19 +46,19 @@ gcc main.c pgm.c quadtree.c encoder.c encoder_manager.c decoder.c compressionfac
   
 O programa opera em dois modos: `encode` e `decode`.  
 >  
-	*modo 1: encoded*  ./encoded_file.exe encode <imagemEntrada.pgm> <nomearquivoBitstream.qcf> <imagemCodificada.pgm> <niveldecompressao (altissimo, alto, medio ou baixo)>
-	*modo 2: decoded*  ./encoded_file.exe decode <nomearquivoBitstream.qcf> <imagemDecodificada.pgm>
+	*modo 1: encoded*  ./encoded_file.exe encode <imagemEntrada.pgm> <nomearquivoBitstream.bit> <imagemCodificada.pgm> <niveldecompressao (altissimo, alto, medio ou baixo)>
+	*modo 2: decoded*  ./encoded_file.exe decode <nomearquivoBitstream.bit> <imagemReconstruida.pgm>
 
 ********************************************************  
 
 ### Testagem
 Para a testagem do algoritmo, foram utilizadas 5 imagens:   
 >  
-`img01.pgm`: uma casa com textura de tijolo aparente
-`img02.pgm`:
-`img03.pgm`:
-`img05.pgm`:
-`macaco.pgm`: imagem em alta resolução de um babuíno  
+	img01.pgm: uma casa com textura de tijolo aparente  
+	img02.pgm: 
+	img03.pgm:  
+	img05.pgm:  
+	macaco.pgm: imagem em alta resolução de um babuíno    
   
 ********************************************************   
   
