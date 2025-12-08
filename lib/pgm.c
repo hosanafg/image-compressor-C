@@ -13,7 +13,7 @@ S.O: Windows 11
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "pgm.h"
+#include "../bib/pgm.h"
 
 void readPGMImage(struct pgm *pio, char *filename) {
 

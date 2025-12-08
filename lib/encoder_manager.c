@@ -11,10 +11,10 @@ S.O: Windows 11
 ********************************************************
 */
 
-#include "encoder_manager.h" 
-#include "pgm.h"           
-#include "quadtree.h"      
-#include "encoder.h"       
+#include "../bib/encoder_manager.h" 
+#include "../bib/pgm.h"           
+#include "../bib/quadtree.h"      
+#include "../bib/encoder.h"       
 #include <stdio.h>         
 #include <stdlib.h>        
 

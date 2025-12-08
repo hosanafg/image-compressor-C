@@ -11,7 +11,7 @@ S.O: Windows 11
 ********************************************************
 */
 
-#include "compressionfactor.h"
+#include "../bib/compressionfactor.h"
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -11,7 +11,7 @@ S.O: Windows 11
 ********************************************************
 */
 
-#include "decoder.h"
+#include "../bib/decoder.h"
 #include <stdio.h>
 #include <stdlib.h>
 

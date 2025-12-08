@@ -14,12 +14,12 @@ S.O: Windows 11
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "pgm.h"     
-#include "quadtree.h"
-#include "encoder.h"
-#include "decoder.h"
-#include "compressionfactor.h"
-#include "encoder_manager.h"
+#include "../bib/pgm.h"     
+#include "../bib/quadtree.h"
+#include "../bib/encoder.h"
+#include "../bib/decoder.h"
+#include "../bib/compressionfactor.h"
+#include "../bib/encoder_manager.h"
 
 int main(int argc, char *argv[]) {
     int thresholdTeste = 0; 

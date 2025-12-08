@@ -11,7 +11,7 @@ S.O: Windows 11
 ********************************************************
 */
 
-#include "quadtree.h"
+#include "../bib/quadtree.h"
 #include <stdlib.h>
 #include <stdio.h>
 

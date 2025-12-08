@@ -11,7 +11,7 @@ S.O: Windows 11
 ********************************************************
 */
 
-#include "encoder.h"
+#include "../bib/encoder.h"
 #include <stdio.h>
 #include <stdlib.h>
 
