@@ -50,6 +50,17 @@ O programa opera em dois modos: `encode` e `decode`.
 	*modo 2: decoded*  ./encoded_file.exe decode <nomearquivoBitstream.qcf> <imagemDecodificada.pgm>
 
 ********************************************************  
+
+### Testagem
+Para a testagem do algoritmo, foram utilizadas 5 imagens:   
+>  
+`img01.pgm`: uma casa com textura de tijolo aparente
+`img02.pgm`:
+`img03.pgm`:
+`img05.pgm`:
+`macaco.pgm`: imagem em alta resolução de um babuíno  
+  
+********************************************************   
   
 [![Licença](https://img.shields.io/badge/Licença-MIT-blue.svg)](LICENSE)
 [![Status do Build](https://img.shields.io/badge/Build-Pass-success.svg)](LINK_PARA_BUILD)
