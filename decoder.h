@@ -18,21 +18,18 @@ S.O: Windows 11
 #include "quadtree.h"
 #include "pgm.h" 
 
-// Estrutura para gerenciar a leitura de bits
 typedef struct {
-    FILE *fp;             // Ponteiro para o arquivo de entrada
-    unsigned char buffer; // Buffer temporário para armazenar o byte lido
-    int bit_count;        // Contador de bits no buffer (0 a 7, lidos da esquerda para a direita)
-    int is_loaded;        // Flag para indicar se o buffer já foi carregado
+    FILE *fp;             
+    unsigned char buffer; 
+    int bit_count;        
+    int is_loaded;        
 } BitStreamReader;
 
-// Funções de manipulação do BitStreamReader
 BitStreamReader* create_bitstream_reader(char *filename);
 int read_bit(BitStreamReader *bs);
 unsigned char read_byte(BitStreamReader *bs);
 void close_bitstream_reader(BitStreamReader *bs);
 
-// Funções de Descodificação
 void read_qcf_header(BitStreamReader *bs, struct pgm *pio);
 QuadNode* decode_quadtree(BitStreamReader *bs, int total_width, int start_x, int start_y, int size);
 void decode_pgm_image(char *input_qcf, char *output_pgm);

@@ -56,7 +56,7 @@ QuadNode* build_quadtree (unsigned char *pData, int total_width, int start_x, in
 
     if (size == 1 || is_homogeneous_tolerant(pData, total_width, start_x, start_y, size, threshold)) {
         node->is_leaf = 1; 
-        node->value = calculate_average(pData, total_width, start_x, start_y, size);
+        node->value = (char)(calculate_average(pData, total_width, start_x, start_y, size)-128);
         //PRINT DEBUG: if (size > 1) printf("FOLHA ENCONTRADA: Regiao Homogenea em (%d, %d) 
         //com tamanho %d. Valor: %hhu\n", start_x, start_y, size, node->value);
         return node;
@@ -83,7 +83,7 @@ void reconstructPGMImage(QuadNode *node, unsigned char *pData, int total_width) 
             for (int x=0; x < node->width; x++) {
                 int global_x = node->x + x;
                 int global_y = node->y + y;
-                pData[global_y * total_width + global_x] = node->value;
+                pData[global_y * total_width + global_x] = (unsigned char)node->value+128;
             }
         }
     } else {

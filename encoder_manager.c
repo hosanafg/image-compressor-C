@@ -21,7 +21,6 @@ S.O: Windows 11
 void run_encode(char *input_pgm, char *output_qcf, char *output_reconstructed_pgm, int threshold) {
     struct pgm img;
     QuadNode *root = NULL;
-
     readPGMImage(&img, input_pgm);
     
     if (img.c != img.r || (img.c & (img.c - 1)) != 0) {
@@ -50,7 +49,6 @@ void run_encode(char *input_pgm, char *output_qcf, char *output_reconstructed_pg
     if (root != NULL) freeQuadtree(root);
 }
 
-//teste: filtro besta de suavizacao -> vamos tentar preservar a text. do tijilo 
 void apply_smoothing_filter(unsigned char *pData, int total_width, int total_height) {
     unsigned char *temp_data = (unsigned char *)malloc(total_width * total_height * sizeof(unsigned char));
     if (!temp_data) {

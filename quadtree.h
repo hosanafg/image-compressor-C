@@ -15,7 +15,7 @@ S.O: Windows 11
 #define QUADTREE_H
 
 typedef struct QuadNode {
-    unsigned char value; 
+    char value; 
     int is_leaf;         
     int x, y, width, height; 
     struct QuadNode *children[4]; 
