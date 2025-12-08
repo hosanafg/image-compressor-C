@@ -13,8 +13,8 @@
   
 **Módulos utilizados:** 
    
-**Leitura**: pgm.c e pgm.h 
-**Decomposição quadtree**: quadtree.c e quadtree.h  
+**Leitura**: pgm.c e pgm.h   
+**Decomposição quadtree**: quadtree.c e quadtree.h    
 **Codificação da imagem**: encoder.c, encoder.h, encoder_manager.c, encoder_manager.h, compressionfactor.c, compressionfactor.h  
         *@ encoder_manager.c*: chamada das funções de codificação e de construção da quadtree para gerar o bitstream compactado  
         *@ compressionfactor.c*: controle de via argv quanto ao nível de compressão que a imagem vai ter  
