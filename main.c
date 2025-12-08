@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 
     if (argc < 4) {
         printf("Uso:\n");
-        printf("  Compressão: %s encode <entrada.pgm> <saida.qcf> <reconstruida.pgm>\n", argv[0]);
+        printf("  Compressão: %s encode <entrada.pgm> <saida.qcf> <reconstruida.pgm> <fator de compressao: altissimo, alto, medio ou baixo> \n", argv[0]);
         printf("  Descompressão: %s decode <entrada.qcf> <saida.pgm>\n", argv[0]);
         exit(1);
     }
