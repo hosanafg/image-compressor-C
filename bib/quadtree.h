@@ -21,12 +21,17 @@ typedef struct QuadNode {
     struct QuadNode *children[4]; 
 } QuadNode;
 
+int is_homogeneous_tolerant (unsigned char *pData, int total_width, int start_x, int start_y, 
+                            int size, int threshold);
+
 QuadNode* build_quadtree(unsigned char *pData, int total_width, int start_x, int start_y, 
                         int size, int threshold);
 
+unsigned char calculate_average (unsigned char *pData, int total_width, int start_x, 
+                                int start_y, int size);
+
 unsigned char get_pixel_value(unsigned char *pData, int total_width, int x, int y);
 void reconstructPGMImage(QuadNode *node, unsigned char *pData, int total_width);
-void apply_smoothing_filter(unsigned char *pData, int total_width, int total_height);
 void freeQuadtree(QuadNode *node);
 
 #endif 
