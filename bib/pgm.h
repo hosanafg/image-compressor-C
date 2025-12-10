@@ -3,6 +3,12 @@
 
 Aluna: Hosana Fernandes Gomes
 Matrícula: 20251045050585
+Aluno: Mateus Oliveira Santos
+Matrícula: 20251045050330
+Aluno: Pedro Vasconcelos Almeida
+Matrícula: 20251045050437
+Aluno: Daniel Fernandes Monteiro da Silva
+Matrícula: 20251045050534
 Avaliação 04: Trabalho Final
 04.505.23 − 2025.2 − Prof.Daniel Ferreira
 Compilador: gcc (MinGW.org GCC-6.3.0-1) 6.3.0
