@@ -3,6 +3,12 @@
 
 Aluna: Hosana Fernandes Gomes
 Matrícula: 20251045050585
+Aluno: Mateus Oliveira Santos
+Matrícula: 20251045050330
+Aluno: Pedro Vasconcelos Almeida
+Matrícula: 20251045050437
+Aluno: Daniel Fernandes Monteiro da Silva
+Matrícula: 20251045050534
 Avaliação 04: Trabalho Final
 04.505.23 − 2025.2 − Prof.Daniel Ferreira
 Compilador: gcc (MinGW.org GCC-6.3.0-1) 6.3.0
@@ -25,15 +31,12 @@ void readPGMImage(struct pgm *pio, char *filename) {
         fflush(stdout);
         exit(1);
     }
-    //PRINT DEBUG: printf("DEBUG: Arquivo %s aberto com sucesso.\n", filename);
 
     if ((ch = getc(fp)) != 'P') {
         puts("A imagem fornecida não está no formato pgm");
         fflush(stdout);
         exit(2);
     }
-
-    //print DEBUG printf("DEBUG: Tipo de PGM lido: P%d\n", pio->tipo);
 
     pio->tipo = getc(fp) - 48;
     fseek(fp, 1, SEEK_CUR);
@@ -53,7 +56,6 @@ void readPGMImage(struct pgm *pio, char *filename) {
     
     fscanf(fp, "%d", &pio->mv);
     fseek(fp, 1, SEEK_CUR);
-    //print debug printf("DEBUG: Dimensoes lidas: %dx%d\n", pio->c, pio->r);
 
     pio->pData = (unsigned char *)malloc(pio->r * pio->c * sizeof(unsigned char));
     switch (pio->tipo) {
@@ -91,9 +93,7 @@ void writePGMImage(struct pgm *pio, char *filename) {
     fprintf(fp, "%s\n", "P5");
     fprintf(fp, "%d %d\n", pio->c, pio->r);
     fprintf(fp, "%d\n", 255);
-    fwrite(pio->pData, sizeof(unsigned char), pio->c * pio->r, fp);   
-    //print debug printf("DEBUG: Arquivo PGM de saída '%s' escrito com sucesso.\n", filename);
-    
+    fwrite(pio->pData, sizeof(unsigned char), pio->c * pio->r, fp);       
     fclose(fp);
 }
 

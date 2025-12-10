@@ -18,7 +18,7 @@ S.O: Windows 11
 #include <stdio.h>         
 #include <stdlib.h>        
 
-void run_encode(char *input_pgm, char *output_qcf, char *output_reconstructed_pgm, int threshold) {
+void run_encode(char *input_pgm, char *output_bit, char *output_reconstructed_pgm, int threshold) {
     struct pgm img;
     QuadNode *root = NULL;
     readPGMImage(&img, input_pgm);
@@ -29,7 +29,7 @@ void run_encode(char *input_pgm, char *output_qcf, char *output_reconstructed_pg
     }
 
     root = build_quadtree(img.pData, img.c, 0, 0, img.c, threshold);
-    BitStreamWriter *bs = create_bitstream_writer(output_qcf);
+    BitStreamWriter *bs = create_bitstream_writer(output_bit);
 
     fwrite(&(img.c), sizeof(int), 1, bs->fp);
     fwrite(&(img.r), sizeof(int), 1, bs->fp);

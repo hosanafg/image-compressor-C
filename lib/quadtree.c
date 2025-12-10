@@ -3,6 +3,8 @@
 
 Aluna: Hosana Fernandes Gomes
 Matrícula: 20251045050585
+Aluno: Mateus Oliveira Santos
+Matrícula: 20251045050330
 Avaliação 04: Trabalho Final
 04.505.23 − 2025.2 − Prof.Daniel Ferreira
 Compilador: gcc (MinGW.org GCC-6.3.0-1) 6.3.0
@@ -37,7 +39,7 @@ int is_homogeneous_tolerant (unsigned char *pData, int total_width, int start_x,
     for (int j=0; j<size; j++) {
         for (int i=0; i<size; i++) {
             unsigned char current_pixel = get_pixel_value(pData, total_width, start_x + i, start_y + j);
-            if (abs(current_pixel - avg_value) > threshold) return 0;
+            if (abs(current_pixel - avg_value) >= threshold*1.3) return 0;
         }
     } return 1; 
 }
@@ -57,11 +59,8 @@ QuadNode* build_quadtree (unsigned char *pData, int total_width, int start_x, in
     if (size == 1 || is_homogeneous_tolerant(pData, total_width, start_x, start_y, size, threshold)) {
         node->is_leaf = 1; 
         node->value = (char)(calculate_average(pData, total_width, start_x, start_y, size)-128);
-        //PRINT DEBUG: if (size > 1) printf("FOLHA ENCONTRADA: Regiao Homogenea em (%d, %d) 
-        //com tamanho %d. Valor: %hhu\n", start_x, start_y, size, node->value);
         return node;
-    } //PRINT DEBUG: printf("RECURSAO: Regiao heterogenea em (%d, %d) 
-    //com tamanho %d.\n", start_x, start_y, size);
+    } 
 
     node->is_leaf = 0; 
     int half_size = size/2;
