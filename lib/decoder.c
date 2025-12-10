@@ -122,7 +122,7 @@ void decode_pgm_image(char *input_bitstream, char *output_pgm) {
     QuadNode *root = NULL;
     BitStreamReader *bs = create_bitstream_reader(input_bitstream);
 
-    read_qcf_header(bs, &img);
+    read_bitstream_header(bs, &img);
     printf("DEBUG: Imagem alvo: %d x %d (Max Val: %d)\n", img.c, img.r, img.mv);
 
     img.pData = (unsigned char *)malloc(img.r * img.c * sizeof(unsigned char));
