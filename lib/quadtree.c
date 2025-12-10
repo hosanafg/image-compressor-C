@@ -39,7 +39,7 @@ int is_homogeneous_tolerant (unsigned char *pData, int total_width, int start_x,
     for (int j=0; j<size; j++) {
         for (int i=0; i<size; i++) {
             unsigned char current_pixel = get_pixel_value(pData, total_width, start_x + i, start_y + j);
-            if (abs(current_pixel - avg_value) >= threshold*1.3) return 0;
+            if (abs(current_pixel - avg_value) >= threshold) return 0;
         }
     } return 1; 
 }

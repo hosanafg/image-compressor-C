@@ -19,33 +19,28 @@ fatorCompressao imgQuality (const char *str) {
     if(strcasecmp(str, "baixo")==0) return baixo;
     else if(strcasecmp(str,"medio")==0) return medio;
     else if(strcasecmp(str,"alto")==0) return alto;
-    else if(strcasecmp(str,"altissimo")==0) return altissimo;
     else return error;
 }
 
 int getThreshold(const char *str) {
     fatorCompressao factor = imgQuality(str);
-    int thresholdTemp=0;
+    float thresholdTemp=0;
 
     switch(factor){
-        case altissimo:
-            puts("Fator de compressão ALTISSIMO (acima de 50): imagem com muitas perdas!\n");
-            thresholdTemp=80;
-            break;
 
         case alto:
-            puts("Fator de compressão ALTO (entre 25 e 50): imagem menor com mais perdas!\n");
-            thresholdTemp=40;
+            puts("Fator de compressão ALTO (acima de 25): imagem menor com mais perdas!\n");
+            thresholdTemp=25;
             break;
 
         case medio:
             puts("Fator de compressão MEDIO (entre 10 e 25): imagem um pouco menor com menos perdas!\n");
-            thresholdTemp=20;
+            thresholdTemp=15;
             break;
         
         case baixo:
             puts("Fator de compressão BAIXO (abaixo de 10): imagem com menos redução de tamanho e melhor qualidade!\n");
-            thresholdTemp=9;
+            thresholdTemp=8;
             break;
         
         case error:

@@ -18,7 +18,7 @@ S.O: Windows 11
 #include <stdio.h>
 
 typedef enum {
-    error=0, baixo,medio,alto, altissimo,
+    error=0, baixo,medio,alto
 } fatorCompressao;
 
 fatorCompressao imgQuality (const char *str);
