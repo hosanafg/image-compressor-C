@@ -41,8 +41,9 @@ cd image-compressor-C
   
 ### Execução
 **Compilar**     
-gcc main.c pgm.c quadtree.c encoder.c encoder_manager.c decoder.c compressionfactor.c -o encoded_file.exe  (via terminal/powershell no windows)
-mingw32-make (se o compilador for o mingw) ou make (para sistemas linux e unix-like)
+* gcc main.c pgm.c quadtree.c encoder.c encoder_manager.c decoder.c compressionfactor.c -o encoded_file.exe  (via terminal/powershell no windows)  
+* mingw32-make (se o compilador for o mingw)  
+* make (para sistemas linux e unix-like)  
   
 O programa opera em dois modos: `encode` e `decode`.  
 >  
