@@ -18,7 +18,7 @@ S.O: Windows 11
 #include <stdlib.h>
 
 BitStreamWriter* create_bitstream_writer (char *filename) {
-    BitStreamWriter *bs = (BitStreamWriter *)malloc(sizeof(BitStreamWriter));
+    BitStreamWriter *bs = malloc(sizeof(BitStreamWriter));
     if (!bs) exit(1);
 
     bs->fp = fopen(filename, "wb");
@@ -31,6 +31,27 @@ BitStreamWriter* create_bitstream_writer (char *filename) {
     bs->buffer = 0;
     bs->bit_count = 0;
     return bs;
+}
+
+void encode_quadtree(QuadNode *node, BitStreamWriter *bs) {
+    if (node == NULL) return;
+
+    if (node->is_leaf) {
+        write_bit(bs, 1);
+        write_byte(bs, node->value);
+    } else {
+        write_bit(bs, 0);
+        for (int i = 0; i < 4; i++) {
+            encode_quadtree(node->children[i], bs);
+        }
+    }
+}
+
+void write_byte(BitStreamWriter *bs, unsigned char value) {
+    for (int i = 7; i >= 0; i--) {
+        int bit = (value >> i) & 1;
+        write_bit(bs, bit);
+    }
 }
 
 void write_bit (BitStreamWriter *bs, int bit) {
@@ -58,26 +79,5 @@ void close_bitstream_writer(BitStreamWriter *bs) {
     if (bs) {
         fclose(bs->fp);
         free(bs);
-    }
-}
-
-void write_byte(BitStreamWriter *bs, unsigned char value) {
-    for (int i = 7; i >= 0; i--) {
-        int bit = (value >> i) & 1;
-        write_bit(bs, bit);
-    }
-}
-
-void encode_quadtree(QuadNode *node, BitStreamWriter *bs) {
-    if (node == NULL) return;
-
-    if (node->is_leaf) {
-        write_bit(bs, 1);
-        write_byte(bs, node->value);
-    } else {
-        write_bit(bs, 0);
-        for (int i = 0; i < 4; i++) {
-            encode_quadtree(node->children[i], bs);
-        }
     }
 }

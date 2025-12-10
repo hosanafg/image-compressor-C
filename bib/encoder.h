@@ -24,6 +24,7 @@ typedef struct {
 } BitStreamWriter;
 
 BitStreamWriter* create_bitstream_writer(char *filename);
+void write_byte(BitStreamWriter *bs, unsigned char value);
 void write_bit(BitStreamWriter *bs, int bit);
 void flush_bitstream(BitStreamWriter *bs);
 void close_bitstream_writer(BitStreamWriter *bs);
