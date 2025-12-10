@@ -20,7 +20,7 @@ S.O: Windows 11
 #include <stdlib.h>
 
 BitStreamReader* create_bitstream_reader(char *filename) {
-    BitStreamReader *bs = (BitStreamReader *)malloc(sizeof(BitStreamReader));
+    BitStreamReader *bs = malloc(sizeof(BitStreamReader));
     if (!bs) exit(1);
 
     bs->fp = fopen(filename, "rb");
@@ -76,7 +76,7 @@ unsigned char read_byte(BitStreamReader *bs) {
     } return value;
 }
 
-void read_qcf_header(BitStreamReader *bs, struct pgm *pio) {
+void read_bitstream_header(BitStreamReader *bs, struct pgm *pio) {
     fread(&(pio->c), sizeof(int), 1, bs->fp);
     fread(&(pio->r), sizeof(int), 1, bs->fp);
     fread(&(pio->mv), sizeof(int), 1, bs->fp);
@@ -91,7 +91,7 @@ QuadNode* decode_quadtree(BitStreamReader *bs, int total_width, int start_x, int
     int flag_bit = read_bit(bs);
     if (flag_bit == -1) return NULL; 
     
-    QuadNode *node = (QuadNode *)malloc(sizeof(QuadNode));
+    QuadNode *node = malloc(sizeof(QuadNode));
     if (!node) exit(1);
     
     node->x = start_x;
@@ -117,10 +117,10 @@ QuadNode* decode_quadtree(BitStreamReader *bs, int total_width, int start_x, int
     return node;
 }
 
-void decode_pgm_image(char *input_qcf, char *output_pgm) {
+void decode_pgm_image(char *input_bitstream, char *output_pgm) {
     struct pgm img;
     QuadNode *root = NULL;
-    BitStreamReader *bs = create_bitstream_reader(input_qcf);
+    BitStreamReader *bs = create_bitstream_reader(input_bitstream);
 
     read_qcf_header(bs, &img);
     printf("DEBUG: Imagem alvo: %d x %d (Max Val: %d)\n", img.c, img.r, img.mv);

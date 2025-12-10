@@ -30,8 +30,8 @@ int read_bit(BitStreamReader *bs);
 unsigned char read_byte(BitStreamReader *bs);
 void close_bitstream_reader(BitStreamReader *bs);
 
-void read_qcf_header(BitStreamReader *bs, struct pgm *pio);
+void read_bitstream_header(BitStreamReader *bs, struct pgm *pio);
 QuadNode* decode_quadtree(BitStreamReader *bs, int total_width, int start_x, int start_y, int size);
-void decode_pgm_image(char *input_qcf, char *output_pgm);
+void decode_pgm_image(char *input_bitstream, char *output_pgm);
 
 #endif
