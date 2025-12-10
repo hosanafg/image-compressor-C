@@ -41,11 +41,12 @@ cd image-compressor-C
   
 ### Execução
 **Compilar**     
-gcc main.c pgm.c quadtree.c encoder.c encoder_manager.c decoder.c compressionfactor.c -o encoded_file.exe  
+gcc main.c pgm.c quadtree.c encoder.c encoder_manager.c decoder.c compressionfactor.c -o encoded_file.exe  (via terminal/powershell no windows)
+mingw32-make (se o compilador for o mingw) ou make (para sistemas linux e unix-like)
   
 O programa opera em dois modos: `encode` e `decode`.  
 >  
-	*modo 1: encoded*  ./encoded_file.exe encode <imagemEntrada.pgm> <nomearquivoBitstream.bit> <imagemCodificada.pgm> <niveldecompressao (altissimo, alto, medio ou baixo)>
+	*modo 1: encoded*  ./encoded_file.exe encode <imagemEntrada.pgm> <nomearquivoBitstream.bit> <imagemCodificada.pgm> <niveldecompressao (alto, medio ou baixo)>
 	*modo 2: decoded*  ./encoded_file.exe decode <nomearquivoBitstream.bit> <imagemReconstruida.pgm>
 
 ********************************************************  
