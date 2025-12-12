@@ -22,29 +22,29 @@ S.O: Windows 11
 #include "../bib/encoder_manager.h"
 
 int main(int argc, char *argv[]) {
-    int thresholdTeste = 0; 
+    int thresholdTeste=0; 
 
-    if (argc < 4) {
+    if (argc<4) {
         printf("Uso:\n");
         printf("  Compressão: %s encode <entrada.pgm> <saida.bit> <reconstruida.pgm> <fator de compressao: altissimo, alto, medio ou baixo> \n", argv[0]);
-        printf("  Descompressão: %s decode <entrada.qcf> <saida.pgm>\n", argv[0]);
+        printf("  Descompressão: %s decode <entrada.bit> <saida.pgm>\n", argv[0]);
         exit(1);
     }
 
-    if (strcmp(argv[1], "encode") == 0) {
+    if (strcmp(argv[1], "encode")==0) {
         if (argc != 6) { 
             printf("Erro: Formato incorreto para o modo 'encode'.\n");
-            printf("Uso: %s encode <entrada.pgm> <saida.bit> <reconstruida.pgm> <fator de compressao: alto, medio, baixo>\n", argv[0]);
+            printf("Uso: %s <encode> <entrada.pgm> <saida.bit> <reconstruida.pgm> <fator de compressao: alto, medio, baixo>\n", argv[0]);
             exit(1);
         } 
     
     thresholdTeste=getThreshold(argv[5]);
     run_encode(argv[2], argv[3], argv[4], thresholdTeste);
         
-    } else if (strcmp(argv[1], "decode") == 0) {
-        if (argc != 4) { 
+    } else if (strcmp(argv[1], "decode")==0) {
+        if (argc!=4) { 
             printf("Erro: Formato incorreto para o modo 'decode'.\n");
-            printf("Uso: %s decode <entrada.bit> <saida.pgm>\n", argv[0]);
+            printf("Uso: %s <decode> <entrada.bit> <saida.pgm>\n", argv[0]);
             exit(1);
         } decode_pgm_image(argv[2], argv[3]);
         

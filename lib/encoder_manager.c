@@ -23,7 +23,7 @@ void run_encode(char *input_pgm, char *output_bit, char *output_reconstructed_pg
     QuadNode *root = NULL;
     readPGMImage(&img, input_pgm);
     
-    if (img.c != img.r || (img.c & (img.c - 1)) != 0) {
+    if (img.c!=img.r || (img.c &(img.c - 1)) != 0) {
         printf("ERRO!: A imagem precisa ser quadrada e com dimensão potência de 2.\n");
         exit(1);
     }
@@ -50,28 +50,28 @@ void run_encode(char *input_pgm, char *output_bit, char *output_reconstructed_pg
 }
 
 void apply_smoothing_filter(unsigned char *pData, int total_width, int total_height) {
-    unsigned char *temp_data = (unsigned char *)malloc(total_width * total_height * sizeof(unsigned char));
+    unsigned char *temp_data = malloc(total_width * total_height * sizeof(unsigned char));
     if (!temp_data) {
         perror("Erro de alocacao para o buffer temporario.");
         return; 
     }
-    for (int i = 0; i < total_width * total_height; i++) {
-        temp_data[i] = pData[i];
+    for (int i=0; i<total_width*total_height; i++) {
+        temp_data[i]=pData[i];
     }
-    for (int y = 1; y < total_height - 1; y++) {
-        for (int x = 1; x < total_width - 1; x++) {
-            long sum = 0;
-            for (int j = -1; j <= 1; j++) {
-                for (int i = -1; i <= 1; i++) {
-                    sum += get_pixel_value(pData, total_width, x + i, y + j);
+    for (int y=1; y<total_height-1; y++) {
+        for (int x=1; x<total_width-1; x++) {
+            long sum=0;
+            for (int j=-1; j<=1; j++) {
+                for (int i=-1; i<=1; i++) {
+                    sum += get_pixel_value(pData, total_width, x+i, y+j);
                 }
-            } int index = y * total_width + x;
-            temp_data[index] = (unsigned char)(sum / 9);
+            } int index=y * total_width + x;
+            temp_data[index]=(unsigned char)(sum / 9);
         }
-    } for (int y = 1; y < total_height - 1; y++) {
-        for (int x = 1; x < total_width - 1; x++) {
-             int index = y * total_width + x;
-             pData[index] = temp_data[index];
+    } for (int y=1; y<total_height-1; y++) {
+        for (int x=1; x<total_width-1; x++) {
+             int index = y*total_width+x;
+             pData[index]=temp_data[index];
         }
     } free(temp_data);
 }

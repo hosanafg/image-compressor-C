@@ -30,7 +30,7 @@ int getThreshold(const char *str) {
 
         case alto:
             puts("Fator de compressão ALTO (acima de 25): imagem menor com mais perdas!\n");
-            thresholdTemp=25;
+            thresholdTemp=30;
             break;
 
         case medio:
