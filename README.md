@@ -16,9 +16,7 @@ Implementação de algoritmo para compressão de imagem PGM em C
 **Leitura**: `pgm.c` e `pgm.h`   
 **Decomposição quadtree**: `quadtree.c` e `quadtree.h`    
 **Codificação da imagem**: `encoder.c`, `encoder.h`, `encoder_manager.c`, `encoder_manager.h`, `compressionfactor.c`, `compressionfactor.h`    
-> * `encoder_manager.c`: chamada das funções de codificação e de construção da quadtree para gerar o bitstream compactado. Serão chamadas no main.c  
-> * `compressionfactor.c`: controle de via argv quanto ao nível de compressão que a imagem vai ter
->
+
 	COMPRESSION FACTOR (argv[5]):  
     **alto**: alta taxa de distorção, porem  com a compressão entre 80-90%.  
     **medio**: o bitstream gerado tem cerca de 70% do valor original. A imagem reconstruída ainda apresenta aspecto pixelado, mas com uma resolução melhor que opções supracitadas. O fator PSNR ainda não é satisfatório.  
@@ -44,6 +42,8 @@ cd image-compressor-C
 * mingw32-make (se o compilador for mingw32)  
 * make (para sistemas linux e unix-like)  
   
+  
+**Modo de execução**     
 O programa opera em dois modos: `encode` e `decode`.  
 >  
 	*modo 1: encoded*  ./encoded_file.exe encode <imagemEntrada.pgm> <nomearquivoBitstream.bit> <imagemCodificada.pgm> <niveldecompressao (alto, medio ou baixo)>
