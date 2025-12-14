@@ -20,8 +20,7 @@ Implementação de algoritmo para compressão de imagem PGM em C
 > * `compressionfactor.c`: controle de via argv quanto ao nível de compressão que a imagem vai ter
 >
 	COMPRESSION FACTOR (argv[5]):  
-    **altissimo**: o algoritmo gera um bitstream bastante compacto, mas com muita perda de qualidade. a compressão pode ultrapassar 90%.  
-    **alto**: idem, porem  com a compressão entre 80-90%.  
+    **alto**: alta taxa de distorção, porem  com a compressão entre 80-90%.  
     **medio**: o bitstream gerado tem cerca de 70% do valor original. A imagem reconstruída ainda apresenta aspecto pixelado, mas com uma resolução melhor que opções supracitadas. O fator PSNR ainda não é satisfatório.  
     **baixo**: imagem menos compactada (cerca de 60% do valor do tamanho original), mas com boa resolução. Melhor opção para imagens com muita textura
 
@@ -42,7 +41,7 @@ cd image-compressor-C
 ### Execução
 **Compilar**     
 * gcc main.c pgm.c quadtree.c encoder.c encoder_manager.c decoder.c compressionfactor.c -o encoded_file.exe  (via terminal/powershell no windows)  
-* mingw32-make (se o compilador for o mingw)  
+* mingw32-make (se o compilador for mingw32)  
 * make (para sistemas linux e unix-like)  
   
 O programa opera em dois modos: `encode` e `decode`.  
@@ -56,9 +55,9 @@ O programa opera em dois modos: `encode` e `decode`.
 Para a testagem do algoritmo, foram utilizadas 5 imagens:   
 >  
 	img01.pgm: uma casa com textura de tijolo aparente  
-	img02.pgm: 
-	img03.pgm:  
-	img05.pgm:  
+	img02.pgm: relógio com um porta retrato
+	img03.pgm: balinhas sortidas
+	img05.pgm: legumes em alta resolução
 	macaco.pgm: imagem em alta resolução de um babuíno    
   
 ********************************************************   
