@@ -4,7 +4,7 @@ Implementação de algoritmo para compressão de imagem PGM em C
 ******************************************************  
 
 **Avaliação 04: Trabalho Final**  
-**Equipe**: Hosana Fernandes Gomes, Mateus Oliveira Santos, Pedro Vasconcelos Almeida, Daniel Fernandes M. da Silva     
+**Equipe**: Hosana, Mateus O., Pedro V., Daniel F.M. da Silva     
 **04.505.23 − 2025.2** − Prof.Daniel Ferreira  
 **Compilador**: gcc (MinGW.org GCC-6.3.0-1) 6.3.0  
 **S.O**: Windows 11  
