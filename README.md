@@ -1,4 +1,4 @@
-### Image-Compressor-C 
+### Compressão de imagem em C   
 Implementação de algoritmo para compressão de imagem PGM em C  
   
 ******************************************************  
@@ -44,7 +44,7 @@ cd image-compressor-C
   
   
 **Modo de execução**     
-O programa opera em dois modos: `encode` e `decode`.  
+Após a compilação, via terminal ou makefile, o usuário deve escolher o modo do algoritmo via argv: `encode` ou `decode`.  
 >  
 	*modo 1: encoded*  ./encoded_file.exe encode <imagemEntrada.pgm> <nomearquivoBitstream.bit> <imagemCodificada.pgm> <niveldecompressao (alto, medio ou baixo)>
 	*modo 2: decoded*  ./encoded_file.exe decode <nomearquivoBitstream.bit> <imagemReconstruida.pgm>
