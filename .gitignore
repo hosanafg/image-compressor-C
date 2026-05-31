@@ -1,0 +1,8 @@
+# Ignorar arquivos com extensões específicas
+*.bit
+*.pgm
+*.o
+
+# Ignorar pastas inteiras (com uma barra no final)
+rsc/
+lib/
