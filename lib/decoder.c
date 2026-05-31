@@ -33,21 +33,21 @@ BitStreamReader* create_bitstream_reader(char *filename) {
     bs->buffer=0;
     bs->bit_count=0;
     bs->is_loaded=0; 
+    
     return bs;
 }
 
 int read_bit(BitStreamReader *bs) {
     if (bs->bit_count == 0 && bs->is_loaded == 0) {
-        if (fread(&(bs->buffer), sizeof(unsigned char), 1, bs->fp) != 1) {
-            return -1;
-        }
+        if (fread(&(bs->buffer), sizeof(unsigned char), 1, bs->fp) != 1) return -1;
+    
         bs->bit_count=8; 
         bs->is_loaded=1;
     } 
+
     else if (bs->bit_count==0 && bs->is_loaded==1) {
-        if (fread(&(bs->buffer), sizeof(unsigned char), 1, bs->fp) != 1) {
-            return -1; 
-        } bs->bit_count=8;
+        if (fread(&(bs->buffer), sizeof(unsigned char), 1, bs->fp) != 1) return -1; 
+        bs->bit_count=8;
     }
 
     int bit = (bs->buffer >> 7) & 1; 
@@ -102,17 +102,19 @@ QuadNode* decode_quadtree(BitStreamReader *bs, int total_width, int start_x, int
     if (flag_bit==1) { 
         node->is_leaf=1; 
         node->value=read_byte(bs);
-    } else {
+    } 
+    
+    else {
         node->is_leaf=0; 
         int half_size=size/2;
-
         node->children[0] = decode_quadtree(bs, total_width, start_x, start_y, half_size);
         node->children[1] = decode_quadtree(bs, total_width, start_x + half_size, start_y, half_size);
         node->children[2] = decode_quadtree(bs, total_width, start_x, start_y + half_size, half_size);
         node->children[3] = decode_quadtree(bs, total_width, start_x + half_size, start_y + half_size, half_size);
-
         node->value = 0; 
-    } return node;
+    } 
+    
+    return node;
 }
 
 void decode_pgm_image(char *input_bitstream, char *output_pgm) {

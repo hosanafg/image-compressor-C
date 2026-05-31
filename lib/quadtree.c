@@ -54,16 +54,16 @@ QuadNode* build_quadtree (unsigned char *pData, int total_width, int start_x, in
     node->y = start_y;
     node->width = node->height = size;
 
-    for (int i = 0; i < 4; i++) node->children[i] = NULL; 
+    for (int i=0; i<4; i++) node->children[i] = NULL; 
 
-    if (size == 1 || is_homogeneous_tolerant(pData, total_width, start_x, start_y, size, threshold)) {
+    if (size==1 || is_homogeneous_tolerant(pData, total_width, start_x, start_y, size, threshold)) {
         node->is_leaf = 1; 
         node->value = (char)(calculate_average(pData, total_width, start_x, start_y, size)-128);
         return node;
     } 
 
-    node->is_leaf = 0; 
-    int half_size = size/2;
+    node->is_leaf=0; 
+    int half_size=size/2;
 
     node->children[0] = build_quadtree(pData, total_width, start_x, start_y, half_size, threshold);
     node->children[1] = build_quadtree (pData, total_width, start_x + half_size, 
