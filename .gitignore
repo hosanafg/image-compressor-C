@@ -2,7 +2,8 @@
 *.bit
 *.pgm
 *.o
+*.exe
 
 # Ignorar pastas inteiras (com uma barra no final)
 rsc/
-lib/
+img/
