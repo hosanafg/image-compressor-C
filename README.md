@@ -49,12 +49,6 @@ git clone [https://github.com/hosanafg/image-compressor-C.git](https://github.co
 cd image-compressor-C
 
 # 2. Compilar
-## GNU Make (Recomendado para Linux/Unix):
-make
-
-## MinGW (Windows)
-mingw32-make
-
 ## Manualmente (Powershell)
 gcc main.c pgm.c quadtree.c encoder.c encoder_manager.c decoder.c -o encoded_file.exe
 ```
