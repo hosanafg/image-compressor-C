@@ -51,6 +51,9 @@ cd image-compressor-C
 # 2. Compilar
 ## Manualmente (Powershell)
 gcc main.c pgm.c quadtree.c encoder.c encoder_manager.c decoder.c -o encoded_file.exe
+
+## Manualmente (Linux / MacOS)
+gcc main.c pgm.c quadtree.c encoder.c encoder_manager.c decoder.c -o encoded_file
 ```
 
 ## Modos de execução
